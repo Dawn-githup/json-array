@@ -16,14 +16,10 @@ public class JsonFieldCount {
         Map<String, Integer> fieldCounts = new HashMap<>();
 
         try {
-            // 2. 解析 JSON
             JsonNode rootNode = objectMapper.readTree(new File(filePath));
 
-            // 3. 统计字段值
-            // 在这个示例中，我们假设要统计名为 "value" 的字段
             countFieldValues(rootNode, "value", fieldCounts);
 
-            // 4. 输出统计结果
             for (Map.Entry<String, Integer> entry : fieldCounts.entrySet()) {
                 System.out.println("Field Value: " + entry.getKey() + ", Count: " + entry.getValue());
             }
